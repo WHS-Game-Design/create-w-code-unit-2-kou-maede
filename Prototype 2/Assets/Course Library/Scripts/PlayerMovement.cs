@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     private readonly float speed = 20f;
     private readonly int limitX = 15;
+    public GameObject projectilePrefab;
     void Start()
     {
 
@@ -26,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
         if(transform.position.x <= -limitX)
         {
             transform.position = Vector3.left * limitX;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+           Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
     }
 }

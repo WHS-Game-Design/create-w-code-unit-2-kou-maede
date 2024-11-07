@@ -7,6 +7,7 @@ using UnityEngine;
 public class MoveForward : MonoBehaviour
 {
     private float speed = 40f;
+    private float limitZ = 30;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,9 @@ public class MoveForward : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);        
+        if(Mathf.Abs(transform.position.z) > limitZ)
+        {
+            Destroy(gameObject);
+        }
     }
 }

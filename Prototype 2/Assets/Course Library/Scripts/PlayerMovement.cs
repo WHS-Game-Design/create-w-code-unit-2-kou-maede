@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    private readonly float speed = 20f;
+    private readonly float speed = 30f;
     private readonly int limitX = 15;
     public GameObject projectilePrefab;
     void Start()

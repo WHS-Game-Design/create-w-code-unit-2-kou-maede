@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
-    private float speed = 40f;
+    private float speed = 20f;
     private float limitZ = 30;
 
     // Start is called before the first frame update
@@ -23,5 +23,17 @@ public class MoveForward : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(transform.position.z < -limitZ)
+        {
+            Debug.Log("PLEHHH");
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        Debug.Log("Hit something");
+        Destroy(collider.gameObject);
+        Destroy(gameObject);
     }
 }
